@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react';
+import { MovieList } from './Components/MovieList';
+import { Search } from './Components/Search';
+import {movieData} from "./Data";
+import {AddMovie} from "./Components/AddMovie";
 
 function App() {
+  const [movies, setMovies] = useState(movieData);
+  const [searchTitle, setSearchTitle] = useState("");
+  const [searchRating, setSearchRating] = useState(0);
+  const add=(newMovie)=>{setFilm(film=>([...film,newMovie]))};
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Search setSearchRating={setSearchRating} searchRating={searchRating} setsearchTitle={setSearchTitle} />
+      <MovieList searchRating={searchRating} searchTitle={searchTitle} movies={movies} />
+      <AddMovie add={add}/>
     </div>
   );
 }
