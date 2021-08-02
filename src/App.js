@@ -5,14 +5,14 @@ import {movieData} from "./Data";
 import {AddMovie} from "./Components/AddMovie";
 
 function App() {
-  const [movies, setMovies] = useState(movieData);
+  const [movies, setMovie] = useState(movieData);
   const [searchTitle, setSearchTitle] = useState("");
   const [searchRating, setSearchRating] = useState(0);
-  const add=(newMovie)=>{setFilm(film=>([...film,newMovie]))};
+  const add=(newMovie)=>{setMovie(movie=>([...movie,newMovie]))};
 
   return (
     <div className="App">
-      <Search setSearchRating={setSearchRating} searchRating={searchRating} setsearchTitle={setSearchTitle} />
+      <Search setSearchRating={setSearchRating} searchRating={searchRating} setSearchTitle={setSearchTitle} />
       <MovieList searchRating={searchRating} searchTitle={searchTitle} movies={movies} />
       <AddMovie add={add}/>
     </div>

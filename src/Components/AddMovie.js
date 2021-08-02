@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState} from 'react';
 
 
-export function AddMovie({add, setFilm}) {
+export function AddMovie({add, setMovie}) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -33,10 +33,6 @@ export function AddMovie({add, setFilm}) {
                   <div className="bigDiv">
                       <label className="input">Description</label>
                       <input type="text" name="description" onChange={handleChange} />
-                  </div>
-                  <div className="bigDiv">
-                      <label className="input">Movie url</label>
-                      <input type="text" name="url" onChange={handleChange} />
                   </div>
                   <div className="bigDiv">
                       <label className="input">Rating</label>
